@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인터넷활용 실습 템플릿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>SeungGyunLee</h1>
+        <p class="subtitle">한 줄 소개: 광운대학교 재학생</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main class="container">
+        <section>
+            <script>
+                let now = new Date()
+
+                let now_y = now.getFullYear();
+                let now_m = now.getMonth();
+                let now_d = now.getDate();
+                let u_y_str = prompt('원하는 년도를 입력하세요 ex)2025');
+                let u_m_str = prompt('원하는 달을 입력하세요 ex)12');
+                let u_d_str = prompt('원하는 날짜를 입력하세요 ex)29');
+
+                if (!u_d_str || !u_m_str || !u_y_str) {
+                    document.write('계산을 취소했습니다.');
+                }
+                else {
+                    let u_y_int = parseInt(u_y_str);
+                    let u_m_int = parseInt(u_m_str);
+                    let u_d_int = parseInt(u_d_str);
+
+
+                    let targetDate = new Date(u_y_int, u_m_int - 1, u_d_int);
+                    let nowDate = new Date(now_y, now_m, now_d);
+                    let diffMs = nowDate.getTime() - targetDate.getTime();
+                    let diffDay = Math.abs(diffMs / (1000 * 60 * 60 * 24));
+                    if (diffDay > 0) {
+                        document.write('D- ' + Math.abs(diffDay) + '입니다!');
+                    }
+                    else if (diffDay < 0) {
+                        document.write('D+ ' + Math.abs(diffDay) + '입니다!');
+                    }
+                    else {
+                        document.write(D - Day + '입니다!');
+                    }
+                }
+
+            </script>
+        </section>
+    </main>
+    <footer>
+        <small>&copy; <span id="year"></span>.이승균</small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

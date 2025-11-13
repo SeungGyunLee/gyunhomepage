@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인터넷활용 실습 템플릿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>SeungGyunLee</h1>
+        <p class="subtitle">한 줄 소개: 광운대학교 재학생생</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main class="container">
+        <section>
+            <script>
+                let inputString = prompt('음식의 리스트를 입력해주세요(,로 구분)');
+                if (!inputString) 
+                {
+                    document.write('뽑기를 취소했습니다.');
+                }
+                else 
+                {
+                    let items = new Array(inputString.split(','));
+                    let index = Math.floor(Math.random * items.length);
+                    let choice = items[index].trim()
+                    document.write(choice);
+
+                }
+            </script>
+        </section>
+    </main>
+    <footer>
+        <small>&copy; <span id="year"></span>.이승균</small>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

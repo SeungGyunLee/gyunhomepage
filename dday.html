@@ -39,15 +39,19 @@
                     let u_m_int = parseInt(u_m_str);
                     let u_d_int = parseInt(u_d_str);
 
+                    if (u_m_int < 1 || u_m_int > 12 || u_d_int < 1 || u_d_int > 31) {
+                        document.write('잘못된 날짜입니다. 다시 시도해주세요.');
+                        exit();
+                    }
 
                     let targetDate = new Date(u_y_int, u_m_int - 1, u_d_int);
                     let nowDate = new Date(now_y, now_m, now_d);
                     let diffMs = nowDate.getTime() - targetDate.getTime();
-                    let diffDay = Math.abs(diffMs / (1000 * 60 * 60 * 24));
-                    if (diffDay > 0) {
+                    let diffDay = diffMs / (1000 * 60 * 60 * 24);
+                    if (diffDay < 0) {
                         document.write('D- ' + Math.abs(diffDay) + '입니다!');
                     }
-                    else if (diffDay < 0) {
+                    else if (diffDay > 0) {
                         document.write('D+ ' + Math.abs(diffDay) + '입니다!');
                     }
                     else {

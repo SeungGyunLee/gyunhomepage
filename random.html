@@ -22,17 +22,17 @@
     <main class="container">
         <section>
             <script>
-                let inputString = prompt('음식의 리스트를 입력해주세요(,로 구분)');
+                let inputString = prompt('음식의 리스트를 입력해주세요(,로 구분)', '제육볶음,돈까스,순대국,김치찌개,햄버거,초밥,파스타,샐러드,떡볶이,마라탕,사과,바나나,딸기,수박');
                 if (!inputString) 
                 {
                     document.write('뽑기를 취소했습니다.');
                 }
                 else 
                 {
-                    let items = new Array(inputString.split(','));
-                    let index = Math.floor(Math.random * items.length);
-                    let choice = items[index].trim()
-                    document.write(choice);
+                    let items = inputString.split(',');
+                    let index = Math.floor(Math.random() * items.length);
+                    let choice = items[index].trim();
+                    document.write('뽑힌 음식은 ' + choice + '입니다!');
 
                 }
             </script>

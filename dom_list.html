@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인터넷활용 실습 템플릿</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #f0f0f0;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: lightyellow;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  </style>
+  <script>
+
+    function addComment() {
+      var inputStr = prompt("댓글을 입력하세요:");
+      var parent = document.getElementById("commentList");
+      var newLi = document.createElement("li");
+      newLi.innerHTML = inputStr;
+
+      newLi.onclick = function() {
+        var p = this.parentElement;
+        p.removeChild(this);
+      }
+      parent.appendChild(newLi);
+    }
+
+  </script>
+</head>
+
+<body onload="addComment()">
+
+  <h3>댓글 목록</h3>
+  <ul id="commentList"></ul>
+  <button onclick="addComment()">댓글 추가</button>
+
+  <footer>
+    <small>&copy; <span id="year"></span>.이승균</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

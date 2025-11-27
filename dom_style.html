@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인터넷활용 실습 템플릿</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    /* 타겟 문장 기본 스타일 */
+    #target {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 20px;
+      border: 2px solid #ccc;
+      margin: 20px auto;
+      width: 80%;
+      transition: all 0.3s;
+      /* 부드러운 전환 효과 */
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: gray;
+      border: 1px solid #999;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+  <script>
+    function toggleVisibility() {
+      var obj = document.getElementById("target");
+      // 현재 가display 이면none 으로block , 아니면 으로none
+      if (obj.style.display == "none") {
+        obj.style.display = "block";
+      } 
+      else {
+        obj.style.display = "none";
+      }
+    }
+
+    function changeColor() {
+      var obj = document.getElementById("target");
+      obj.style.color = "blue"; 
+      // 글자색을 파란색으로 변경
+    }
+    function changeSize() {
+      var obj = document.getElementById("target");
+      obj.style.fontSize = "30px"; 
+      // 글자크기를 30px로 변경
+    }
+    function changeMoveL() {
+      var obj = document.getElementById("target");
+      obj.style.textAlign = "left"; 
+      // 글자를 왼쪽 정렬로 변경
+    }
+    function changeMoveR() {
+      var obj = document.getElementById("target");
+      obj.style.textAlign = "right"; 
+      // 글자를 오른쪽 정렬로 변경
+    } 
+  </script>
+</head>
+
+<body>
+  <p id="target">이 문장의 스타일을 바꿔보세요!</p>
+  <button onclick="changeColor()">글자색 변경</button>
+  <button onclick="changeSize()">글자크기 변경</button>
+  <button onclick="changeMoveL()">글자 왼쪽 정렬</button>
+  <button onclick="changeMoveR()">글자 오른쪽 정렬</button>
+
+
+  
+  <footer>
+    <small>&copy; <span id="year"></span>.이승균</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

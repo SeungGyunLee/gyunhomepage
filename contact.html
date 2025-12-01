@@ -5,10 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>인터넷활용 실습 템플릿</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    #commentList  {
+      list-style-type: none;
+      padding: 0;
+    }
+    form.comment-form {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid blue;
+      border-radius: 5px;
+    }
+    #commentList li:hover {
+      background-color: lightgrey;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+
+    function addComment() {
+      var inputName = document.querySelector('.contact-form input[type="text"]').value;
+      var inputComment = document.querySelector('.contact-form textarea').value;
+      var parent = document.getElementById("commentList");
+      var newLi = document.createElement("li");
+      newLi.innerHTML = "<strong>" + inputName + ":</strong> " + inputComment;
+
+      newLi.onclick = function() {
+        var p = this.parentElement;
+        p.removeChild(this);
+      }
+      parent.appendChild(newLi);
+    }
+
+  </script>
 </head>
 <body>
 <header>
-  <h1>이름: 제작자 정보 </h1>
+  <h1>제작자 정보</h1>
   <p class="subtitle">한 줄 소개: 연락 수단</p>
 </header>
 <nav>
@@ -21,17 +57,22 @@
 <section>
   <h2>Contact</h2>
   <ul>
-    <li>이메일:  dltmdrbs321@gmail.com</li>
+    <li>이메일: dltmdrbs321@gmail.com</li>
     <li>GitHub: SeungGyunLee</li>
-    <li>기타 링크(블로그/노션 등): 해당사항 없음</li>
+    <li>기타 링크(블로그/노션 등): 해당 없음</li>
   </ul>
   <!-- 아래는 정말 기본 예시 폼입니다. JS 없이도 동작하지 않아도 되며, 형태만 제공합니다. -->
   <form class="contact-form" onsubmit="return false;">
     <label>이름</label>
     <input type="text" placeholder="이름을 입력하세요">
     <label>메시지</label>
-    <textarea rows="4" placeholder="메시지를 입력하세요"></textarea>
-    <button type="submit">보내기 (동작X, 형태만)</button>
+    <textarea rows="4" placeholder="아래에 남길 메시지를 입력하세요"></textarea>
+    <button onclick="addComment()">남기기</button>
+  </form>
+
+  <form class="comment-form" onsubmit="return false;">
+    <h3>남긴 메시지</h3>
+    <ul id="commentList"></ul>
   </form>
 </section>
 </main>

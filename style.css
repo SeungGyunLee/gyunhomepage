@@ -3,10 +3,12 @@
    원하는 색상 코드로 아래 4가지만 바꿔보세요.
    ------------------------------------------------------------- */
 :root {
-  --primary: darkblue;      /* 메인 포인트 색상 */
-  --primary-dark: #194c98; /* 호버/진한 포인트 */
-  --bg: #f7f9fc;           /* 전체 배경 색 */
-  --text: #222222;         /* 본문 글자 색 */
+  --primary: rgb(54, 50, 50);      /* 메인 포인트 색상 */
+  --primary-dark: rgb(112, 43, 43); /* 호버/진한 포인트 */
+  --bg: rgb(54, 51, 51);           /* 전체 배경 색 */
+  --text: #222222;  /* 본문 글자 색 */
+  opacity: 1;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /* ============================================================= */
 
@@ -23,7 +25,7 @@ header {
   padding: 2rem 1rem;
   text-align: center;
   background: var(--primary);
-  color: #ffffff;
+  color : #ffffff
 }
 header .subtitle { margin-top: .25rem; opacity: .95; }
 
@@ -50,6 +52,27 @@ nav a:hover { text-decoration: underline; }
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* 개인 프로젝트 좌우 분할 레이아웃 */
+.projects-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: .75rem;
+  align-items: start;
+}
+.projects-split > div {
+  background: #ffffff;
+  color: var(--text);
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.projects-split h3 { margin-top: 0; }
+
+@media (max-width: 800px) {
+  .projects-split { grid-template-columns: 1fr; }
 }
 
 section { margin-bottom: 1rem; }

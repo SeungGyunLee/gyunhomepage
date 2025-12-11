@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            border: 5px solid red;
+            /*경계선표시*/
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #car {
+            position: absolute;
+            /*절대위치필수*/
+            left: 100px;
+            top: 100px;
+            width: 80px;
+            height: 40px;
+            background: violet;
+        }
+    </style>
+    <script>
+        var x = 100, y = 100;
+        var step = 10; //이동거리
+        var borderWidth = 5;
+        // 2.페이지로딩이완료되면(onload)실행
+        window.onload = function () {
+            // 3.키보드를누를때마다(onkeydown)실행
+            window.onkeydown = function (e) {
+                // 37:Left, 38:Up, 39:Right, 40:Down
+                switch (e.keyCode) {
+                    case 37: x -= 15; break; //왼쪽
+                    case 38: y -= 15; break; //위쪽
+                    case 39: x += 15; break; //오른쪽
+                    case 40: y += 15; break; //아래쪽
+                }
+                //변경된좌표를자동차(DOM)에반영
+                var car = document.getElementById("car");
+                car.style.left = x + "px";
+                car.style.top = y + "px";
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+    <div id="car_area">
+        <input type="button" id="car" width="40px" height="30px" value="Car">
+    </div>
+</body>
+
+</html>

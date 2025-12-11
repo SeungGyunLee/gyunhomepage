@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 메뉴 박스 테두리 스타일 (fieldset 대체) */
+        #menu_box {
+            border: 1px solid black;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+
+
+        function recalc() { //가격계산함수
+            var total = 0;
+            var checks = document.getElementsByClassName("menu-check");
+            var qtys = document.getElementsByClassName("menu-qty");
+            for (var i = 0; i < checks.length; i++) {
+                if (checks[i].checked) { //체크된항목만계산
+                    var price = parseInt(checks[i].value);
+                    var quantity = parseInt(qtys[i].value);
+                    total += price * quantity;
+                }
+            }
+            document.getElementById("total").value = total;
+        }
+        function validate(e) { 
+            var total = parseInt(document.getElementById("total").value);
+            if (total == 0) alert("메뉴를선택해주세요.");
+            else alert("주문완료!총액: " + total + "원");
+            e.preventDefault();
+            return false;
+        }
+
+        function addresscheck() {
+            var check_adress = document.getElementById("address");
+            if (!check_adress.value) {
+                alert("주소를 꼭 입력해주세요!");
+            }
+
+        }
+
+        function reset() {
+            location.reload(True);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="menu_box">
+        <h4>메뉴[선택]</h4>
+        <div>
+            <input type="checkbox" class="menu-check" value="15000" onchange="recalc()">
+            콤비네이션피자원(15,000)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()">개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="25000" onchange="recalc()">
+            디럭스 패밀리 피자 (25,000원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()">개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="12000" onchange="recalc()"> 페퍼로니 피자 (12,000원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()"> 개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="2000" onchange="recalc()"> 치즈 토핑 추가 (2,000원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()"> 개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="1500" onchange="recalc()"> 콜라 1.25L (1,500원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()"> 개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="12000" onchange="recalc()"> 페퍼로니 피자 (12,000원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()"> 개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="2000" onchange="recalc()"> 치즈 토핑 추가 (2,000원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()"> 개
+        </div>
+        <div>
+            <input type="checkbox" class="menu-check" value="1500" onchange="recalc()"> 콜라 1.25L (1,500원)
+            <input type="number" class="menu-qty" value="1" min="1" style="width: 40px;" onchange="recalc()"
+                onkeyup="recalc()"> 개
+        </div>
+    </div>
+    <div id="adressBox">
+        배달 주소: <input type="text" id="address" value="">
+    </div>
+    <div id="totalBox">
+        주문 합계: <input type="text" id="total" value="0">
+    </div>
+    <div id="buttonBox">
+        <input type="button" id="submit" value="주문" onclick="addresscheck(), validate(total)">
+        <input type="button" id="reset" value="초기화" onclick="reset()">
+    </div>
+
+</body>
+
+</html>
